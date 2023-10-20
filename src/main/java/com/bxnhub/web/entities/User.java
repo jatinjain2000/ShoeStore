@@ -10,14 +10,13 @@ public class User {
     private Integer userId;
 
     private String userName;
-
-    private String userEmail;
+    private String email;
     private String password;
 
-    public User(Integer userId, String userName, String userEmail, String password) {
+    public User(Integer userId, String userName, String email, String password) {
         this.userId = userId;
         this.userName = userName;
-        this.userEmail = userEmail;
+        this.email = email;
         this.password = password;
     }
     public User() {
@@ -40,12 +39,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

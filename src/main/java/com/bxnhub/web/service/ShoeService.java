@@ -19,7 +19,7 @@ public class ShoeService {
         List<Shoes> list = (List<Shoes>)this.shoesRepo.findAll();
         return list;
     }
-    public Shoes getBookById(int id) {
+    public Shoes getShoeById(int id) {
         Shoes shoe = null;
         try {
             shoe = this.shoesRepo.findById(id);
@@ -33,5 +33,8 @@ public class ShoeService {
 
         shoesRepo.deleteById(id);
     }
-
+    public void updateShoes(Shoes shoe , Integer id){
+        shoe.setId(id);
+        shoesRepo.save(shoe);
+    }
 }

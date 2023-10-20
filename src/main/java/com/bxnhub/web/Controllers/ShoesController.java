@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("http://127.0.0.1:5173/")
 public class ShoesController {
 
     @Autowired
@@ -22,9 +22,18 @@ public class ShoesController {
     public List<Shoes> getShoes(){
         return this.shoeService.getAllShoes();
     }
+    @GetMapping("/shoes/{shoeId}")
+    public Shoes getShoes(@PathVariable("shoeId")int shoeId){
+        return this.shoeService.getShoeById(shoeId);
+    }
     @DeleteMapping("/shoes/{shoeId}")
     public void deleteBooks(@PathVariable("shoeId")int shoeId) {
         this.shoeService.deleteShoe(shoeId);
+    }
+    @PutMapping("/shoes/{id}")
+    public String updateShoe(@RequestBody Shoes shoe , @PathVariable("id") int id){
+        shoeService.updateShoes(shoe , id);
+        return "success";
     }
 
 }

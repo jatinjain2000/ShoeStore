@@ -1,10 +1,12 @@
 package com.bxnhub.web.Repository;
 
-
-import com.bxnhub.web.entities.Shoes;
 import com.bxnhub.web.entities.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepo extends CrudRepository<User,Integer> {
+@Repository
+public interface UserRepo extends JpaRepository<User,Integer> {
     public User findById(int userId);
+    public User findByEmail(String email);
+    public User findByEmailAndPassword(String email , String password);
 }
